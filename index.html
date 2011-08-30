@@ -1,0 +1,36 @@
+<!doctype html>
+<html>
+<head>
+        <title>pixloid</title>
+        <script type="text/javascript" src="processing.js"></script>
+        <script type="text/javascript">
+        function out() 
+        {
+                s = Processing.getInstanceById('sketch'); 
+                s.output();
+        }
+
+        </script>
+        <style>
+        #left, input{
+                float:left;
+        }
+
+        </style>
+</head>
+
+<body>
+        <div id="left">
+                <canvas id="sketch" data-processing-sources="display.pde"></canvas>
+        </div>
+
+        <div id="right">
+                <input type="button" onclick="javascript:out();" value="Get Output"/>
+                <br />
+                <br />
+                <textarea id="text-out" cols=40 rows=30>
+                </textarea>
+        </div>
+</body>
+</html>
+
