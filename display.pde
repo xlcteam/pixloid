@@ -75,6 +75,15 @@ void mouseDragged()
   } 
 }
 
+void clear()
+{
+  for (int x = 0; x < board.gw; x++) {
+    for (int y = 0; y < board.gh; y++) {
+      data[x][y] = 0;
+    }
+  } 
+}
+
 void output()
 {
   String out = "";
@@ -86,6 +95,34 @@ void output()
     }
   }
   document.getElementById("text-out").value = "[" + out + "]";
+}
+
+void load()
+{
+  clear();
+
+  String inp = document.getElementById("text-out").value;
+  String bufx = "", bufy = "";
+
+  int type = 0;
+  for (int i = 0; i < inp.length; i++){
+    if (inp[i] == "[") {
+      type = 0;
+    } else if (inp[i] == ",") {
+      type = 1;
+    } else if (inp[i] == "]") {
+      if (bufx != "" && bufy != "") {
+        data[int(bufx)][int(bufy)] = 1;
+      }
+      bufx = bufy = "";
+    } else {
+      if (type == 0){
+        bufx += inp[i];
+      } else {
+        bufy += inp[i];
+      }
+    }
+  }
 }
 
 class Grid                                                                      
