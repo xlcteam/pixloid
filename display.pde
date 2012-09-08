@@ -1,4 +1,4 @@
-Grid board; 
+Grid board;
 int[][] data;
 void setup() 
 {  
